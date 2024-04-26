@@ -1,19 +1,4 @@
 services:
-  postgres:
-    container_name: postgres-sql-bsn
-    image: postgres
-    environment:
-      MYSQL_USER: username
-      MYSQL_PASSWORD: password
-      MYSQL_DATA: /var/lib/postgresql/data
-      POSTGRES_DB: book_social_network
-    volumes:
-      - postgres:/data/postgres
-    ports:
-      - 5432:5432
-    networks:
-      - spring-demo
-    restart: unless-stopped
   mail-dev:
     container_name: mail-dev-bsn
     image: maildev/maildev
@@ -21,10 +6,4 @@ services:
       - 1080:1080
       - 1025:1025
 
-networks:
-  spring-demo:
-    driver: bridge
 
-volumes:
-  postgres:
-    driver: local

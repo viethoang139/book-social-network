@@ -1,17 +1,14 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/book_social_network
-    username: username
-    password: password
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:mysql://localhost:3306/book_social_network
+    username: root
+    password: lvh130902
   jpa:
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
         format_sql: true
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSLDialect
   mail:
     host: localhost
     port: 1025
@@ -31,8 +28,10 @@ spring:
 application:
   security:
     jwt:
-      secret-key: eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMzY2NTI5NCwiaWF0IjoxNzEzNjY1Mjk0fQ.-eTf3aD9DSWK0P8z38Nm7Eo4_aJzk_AWQg3Zz6fQ6E4
+      secret-key: c546dfe71fe6a1a11609a3ca0394f6d6ef0f9105644a881390c7f2fcf29cfcb1
       expiration: 8640000
   mailing:
     frontend:
       activation-url: http://localhost:4200/activate-account
+server:
+  port: 8088
