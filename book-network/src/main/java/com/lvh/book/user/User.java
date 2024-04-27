@@ -1,6 +1,8 @@
 package com.lvh.book.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.lvh.book.book.Book;
+import com.lvh.book.history.BookTransactionHistory;
 import com.lvh.book.role.Role;
 import jakarta.persistence.*;
 import lombok.*;
@@ -42,6 +44,11 @@ public class User implements UserDetails, Principal {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
+    @OneToMany(mappedBy = "owner")
+    private List<Book> books;
+
+    @OneToMany(mappedBy = "user")
+    private List<BookTransactionHistory> histories;
 
 
     @CreatedDate
